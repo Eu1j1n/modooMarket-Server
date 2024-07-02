@@ -1,15 +1,14 @@
 <?php
 
-$host = "localhost";
-$user = "root";
-$password = "Cjftlr224!";
-$db = "userinfo";
+require_once 'config.php'; // 설정 파일 포함
+
+$con = mysqli_connect($db_config['host'], $db_config['username'], $db_config['password'], $db_config['dbname']);
 
 // POST 요청으로부터 roomName을 가져옴
 $roomName = $_POST['roomName'];
 
 // 데이터베이스 연결
-$conn = new mysqli($host, $user, $password, $db);
+
 
 // 연결 확인
 if ($conn->connect_error) {

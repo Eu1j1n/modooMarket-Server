@@ -1,12 +1,10 @@
 <?php
 // register.php
 
-$host = "localhost";
-$user = "root";
-$password = "Cjftlr224!";
-$db = "userinfo";
 
-$con = mysqli_connect($host, $user, $password, $db);
+require_once 'config.php'; // 설정 파일 포함
+
+$con = mysqli_connect($db_config['host'], $db_config['username'], $db_config['password'], $db_config['dbname']);
 
 if ($con) {
     echo "접속 성공";

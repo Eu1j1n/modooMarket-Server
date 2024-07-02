@@ -20,13 +20,10 @@ if ($_FILES['uploaded_file']['error'] == UPLOAD_ERR_OK) {
             // 이미지 업로드 성공
 
             // 데이터베이스 연결 설정
-            $servername = "localhost";
-            $username = "root";
-            $password = "Cjftlr224!";
-            $dbname = "userinfo";
+           
+require_once 'config.php'; // 설정 파일 포함
 
-            // MySQL 연결
-            $conn = new mysqli($servername, $username, $password, $dbname);
+$con = mysqli_connect($db_config['host'], $db_config['username'], $db_config['password'], $db_config['dbname']);
 
             // 연결 확인
             if ($conn->connect_error) {

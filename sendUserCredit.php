@@ -3,16 +3,16 @@
 header('Content-Type: application/json');
 
 // DB 연결 설정
-$host = "localhost";
-$user = "root";
-$password = "Cjftlr224!";
-$dbName = "userinfo";
+
+require_once 'config.php'; // 설정 파일 포함
+
+$con = mysqli_connect($db_config['host'], $db_config['username'], $db_config['password'], $db_config['dbname']);
 
 // 사용자 아이디 받아오기
 $receiveID = $_GET['receiveID'];
 
 // MySQL 연결
-$conn = new mysqli($host, $user, $password, $dbName);
+
 
 // 연결 오류 확인
 if ($conn->connect_error) {

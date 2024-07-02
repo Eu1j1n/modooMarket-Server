@@ -1,15 +1,14 @@
 <?php
 // DB 연결 정보
-$servername = "localhost";
-$username = "root";
-$password = "Cjftlr224!";
-$dbname = "userinfo";
+require_once 'config.php'; // 설정 파일 포함
+
+$con = mysqli_connect($db_config['host'], $db_config['username'], $db_config['password'], $db_config['dbname']);
 
 // GET 요청으로부터 받은 사용자 아이디
 $userId = $_GET['orderPeople'];
 
 // MySQL 데이터베이스와 연결
-$conn = new mysqli($servername, $username, $password, $dbname);
+
 
 // 연결 확인
 if ($conn->connect_error) {

@@ -1,13 +1,9 @@
 <?php
 // 데이터베이스 연결 설정
-$servername = "localhost";
-$username = "root";
-$password = "Cjftlr224!";
-$dbname = "userinfo";
 
-// MySQL 데이터베이스와 연결 생성
-$conn = new mysqli($servername, $username, $password, $dbname);
+require_once 'config.php'; // 설정 파일 포함
 
+$con = mysqli_connect($db_config['host'], $db_config['username'], $db_config['password'], $db_config['dbname']);
 // 연결 확인
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);

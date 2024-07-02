@@ -5,13 +5,10 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 
-$host = "localhost"; // 호스트 이름
-$user = "root"; // MySQL 사용자 이름
-$password = "Cjftlr224!"; // MySQL 비밀번호
-$db = "userinfo"; // 사용할 데이터베이스 이름
 
-// MySQL 데이터베이스에 연결합니다.
-$con = mysqli_connect($host, $user, $password, $db);
+require_once 'config.php'; // 설정 파일 포함
+
+$con = mysqli_connect($db_config['host'], $db_config['username'], $db_config['password'], $db_config['dbname']);
 
 // 연결 상태를 확인합니다.
 if (!$con) {

@@ -1,10 +1,10 @@
 <?php
 
 // DB 연결 설정
-$host = "localhost";
-$user = "root";
-$password = "Cjftlr224!";
-$dbName = "userinfo";
+
+require_once 'config.php'; // 설정 파일 포함
+
+$con = mysqli_connect($db_config['host'], $db_config['username'], $db_config['password'], $db_config['dbname']);
 
 // CreditUpdateRequest 객체를 수신
 $json = file_get_contents('php://input');
@@ -15,7 +15,7 @@ $receivedID = $request->receiveID;
 $updatedCredit = $request->credit;
 
 // MySQL 연결
-$conn = new mysqli($host, $user, $password, $dbName);
+
 
 // 연결 오류 확인
 if ($conn->connect_error) {
